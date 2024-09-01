@@ -1,0 +1,35 @@
+<div style="background-image: url('assets/seeklog1.jpg'); background-size: cover; background-position: center; width: 100vw; height: 100vh;">
+  <div class="container">
+      <form class="form-inline login" #login="ngForm" (ngSubmit)="onsubmit(login)">
+          <h1>Login Form SEEKER</h1>
+          <div class="form-group">
+              <label for="email"><h2>Email:</h2></label>
+              <input
+                  required
+                  [(ngModel)]="loginUserData.email"
+                  #email="ngModel"
+                  name="email"
+                  id="email"
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter your email">
+              <small *ngIf="email.touched && !email.valid" class="text-danger">Please enter a valid email address</small>
+          </div>
+          <div class="form-group">
+              <label for="password"><h2>Password:</h2></label>
+              <input
+                  required
+                  [(ngModel)]="loginUserData.password"
+                  name="password"
+                  id="password"
+                  #password="ngModel"
+                  type="password"
+                  class="form-control"
+                  placeholder="Enter your password">
+              <small *ngIf="password.touched && !password.valid" class="text-danger">Please enter your password</small>
+          </div>
+          <button (click)="loginUser()" class="btn btn-primary" type="submit">Login</button>
+          <label>Don't have an account? <a href="/register-seeker">Sign Up</a></label>
+      </form>
+  </div>
+</div>
